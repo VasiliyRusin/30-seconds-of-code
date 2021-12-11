@@ -2,7 +2,7 @@
 title: words
 tags: string,regexp,intermediate
 firstSeen: 2017-12-21T14:50:57+02:00
-lastUpdated: 2020-10-22T20:24:44+03:00
+lastUpdated: 2021-12-11T05:53:08+07:00
 ---
 
 Converts a given string into an array of words.
@@ -12,11 +12,11 @@ Converts a given string into an array of words.
 - Omit the second argument, `pattern`, to use the default regexp.
 
 ```js
-const words = (str, pattern = /[^a-zA-Z-]+/) =>
+const words = (str, pattern = /[ ?!|/\/@#$%^&*~+=_.,:;'"`<>{}()\[\]\-]+/) => 
   str.split(pattern).filter(Boolean);
 ```
 
 ```js
-words('I love javaScript!!'); // ['I', 'love', 'javaScript']
-words('python, javaScript & coffee'); // ['python', 'javaScript', 'coffee']
+words('Я ♥️  javaScript!!'); // ["Я", "♥️", "javaScript"]
+words('python, javaScript & coffee'); // ["python", "javaScript", "coffee"]
 ```
